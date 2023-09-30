@@ -1,6 +1,6 @@
 ################################################################################################
 ####            Preconceptional and Prenatal Exposure to Climate Variability                ####
-####   driven by  El Ni??o Southern Oscillation and Child Mortality: A Multi-country Study  ####
+####   driven by  El Nino Southern Oscillation and Child Mortality: A Multi-country Study   ####
 ####                                                                                        ####
 ####       Hongbing XU, Castiel Chen ZHUANG, Vanessa M. ODDO, Espoir Bwenge MALEMBAKA,      ####
 ####                     Xinghou HE, Qinghong ZHANG, Wei HUANG                              ####
@@ -19,8 +19,8 @@ library("survival");library(splines);library(dlnm);library(ggplot2)
 ## "MEI_lag0","MEI_lag1","MEI_lag2","MEI_lag3","MEI_lag4","MEI_lag5","MEI_lag6","MEI_lag7","MEI_lag8","MEI_lag9","MEI_lag10","MEI_lag11","MEI_lag12",
 ## "ESPI_lag0","ESPI_lag1","ESPI_lag2","ESPI_lag3","ESPI_lag4","ESPI_lag5","ESPI_lag6","ESPI_lag7","ESPI_lag8","ESPI_lag9","ESPI_lag10","ESPI_lag11","ESPI_lag12",
 ## "ONI_lag0","ONI_lag1","ONI_lag2","ONI_lag3","ONI_lag4","ONI_lag5","ONI_lag6","ONI_lag7","ONI_lag8","ONI_lag9","ONI_lag10","ONI_lag11","ONI_lag12",
-## "Ni??o12_lag0","Ni??o12_lag1","Ni??o12_lag2","Ni??o12_lag3","Ni??o12_lag4","Ni??o12_lag5","Ni??o12_lag6","Ni??o12_lag7","Ni??o12_lag8","Ni??o12_lag9","Ni??o12_lag10","Ni??o12_lag11","Ni??o12_lag12",
-## "Ni??o34_lag0","Ni??o34_lag1","Ni??o34_lag2","Ni??o34_lag3","Ni??o34_lag4","Ni??o34_lag5","Ni??o34_lag6","Ni??o34_lag7","Ni??o34_lag8","Ni??o34_lag9","Ni??o34_lag10","Ni??o34_lag11","Ni??o34_lag12",
+## "Nino12_lag0","Nino12_lag1","Nino12_lag2","Nino12_lag3","Nino12_lag4","Nino12_lag5","Nino12_lag6","Nino12_lag7","Nino12_lag8","Nino12_lag9","Nino12_lag10","Nino12_lag11","Nino12_lag12",
+## "Nino34_lag0","Nino34_lag1","Nino34_lag2","Nino34_lag3","Nino34_lag4","Nino34_lag5","Nino34_lag6","Nino34_lag7","Nino34_lag8","Nino34_lag9","Nino34_lag10","Nino34_lag11","Nino34_lag12",
 
 
 #Create dataframe with outcomes and covariates
@@ -38,11 +38,11 @@ colnames(ESPI)
 ONI<-data_IPUMS[,c("ONI_lag0","ONI_lag1","ONI_lag2","ONI_lag3","ONI_lag4","ONI_lag5","ONI_lag6","ONI_lag7","ONI_lag8","ONI_lag9","ONI_lag10","ONI_lag11","ONI_lag12")]
 colnames(ONI)
 
-Ni??o12<-data_IPUMS[,c("Ni??o12_lag0","Ni??o12_lag1","Ni??o12_lag2","Ni??o12_lag3","Ni??o12_lag4","Ni??o12_lag5","Ni??o12_lag6","Ni??o12_lag7","Ni??o12_lag8","Ni??o12_lag9","Ni??o12_lag10","Ni??o12_lag11","Ni??o12_lag12")]
-colnames(Ni??o12)
+Nino12<-data_IPUMS[,c("Nino12_lag0","Nino12_lag1","Nino12_lag2","Nino12_lag3","Nino12_lag4","Nino12_lag5","Nino12_lag6","Nino12_lag7","Nino12_lag8","Nino12_lag9","Nino12_lag10","Nino12_lag11","Nino12_lag12")]
+colnames(Nino12)
 
-Ni??o34<-data_IPUMS[,c("Ni??o34_lag0","Ni??o34_lag1","Ni??o34_lag2","Ni??o34_lag3","Ni??o34_lag4","Ni??o34_lag5","Ni??o34_lag6","Ni??o34_lag7","Ni??o34_lag8","Ni??o34_lag9","Ni??o34_lag10","Ni??o34_lag11","Ni??o34_lag12")]
-colnames(Ni??o34)
+Nino34<-data_IPUMS[,c("Nino34_lag0","Nino34_lag1","Nino34_lag2","Nino34_lag3","Nino34_lag4","Nino34_lag5","Nino34_lag6","Nino34_lag7","Nino34_lag8","Nino34_lag9","Nino34_lag10","Nivo34_lag11","Nino34_lag12")]
+colnames(Nino34)
 
 
 #Generate crossbasis matrix 
@@ -50,8 +50,8 @@ lk = logknots(c(0,12),2)
 cbMEI <- crossbasis(MEI,lag=c(0,12),argvar=list(fun="bs",degree=2,df=3), arglag=list(knots=lk))  
 cbESPI <- crossbasis(ESPI,lag=c(0,12),argvar=list(fun="bs",degree=2,df=3), arglag=list(knots=lk)) 
 cbONI <- crossbasis(ONI,lag=c(0,12),argvar=list(fun="bs",degree=2,df=3), arglag=list(knots=lk)) 
-cbNi??o12 <- crossbasis(Ni??o12,lag=c(0,12),argvar=list(fun="bs",degree=2,df=3), arglag=list(knots=lk)) 
-cbNi??o34 <- crossbasis(Ni??o34,lag=c(0,12),argvar=list(fun="bs",degree=2,df=3), arglag=list(knots=lk)) 
+cbNino12 <- crossbasis(Nino12,lag=c(0,12),argvar=list(fun="bs",degree=2,df=3), arglag=list(knots=lk)) 
+cbNino34 <- crossbasis(Nino34,lag=c(0,12),argvar=list(fun="bs",degree=2,df=3), arglag=list(knots=lk)) 
 
 
 
