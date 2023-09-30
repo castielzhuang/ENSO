@@ -1,9 +1,9 @@
 ################################################################################################
 ####            Preconceptional and Prenatal Exposure to Climate Variability                ####
-####   driven by  El Ni??o Southern Oscillation and Child Mortality: A Multi-country Study   ####
+####   driven by  El Ni??o Southern Oscillation and Child Mortality: A Multi-country Study  ####
 ####                                                                                        ####
-####       Hongbing XU, ECastiel Chen ZHUANG, Vanessa M. ODDO, Espoir Bwenge MALEMBAKA,     ####
-####                     YXinghou HE, Qinghong ZHANG, Wei HUANG                             ####
+####       Hongbing XU, Castiel Chen ZHUANG, Vanessa M. ODDO, Espoir Bwenge MALEMBAKA,      ####
+####                     Xinghou HE, Qinghong ZHANG, Wei HUANG                              ####
 ####                                                                                        ####
 ####                              October,2022-August,2023                                  ####
 ################################################################################################
